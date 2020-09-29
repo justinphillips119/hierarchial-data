@@ -1,0 +1,18 @@
+{% load mptt_tags %}
+<h1>Filing Cabinet</h1>
+<br>
+<button><a href='/addfolderfile/' style="color:blue;">Add Folder or File</a></button>
+<br>
+<br>
+<ul>
+    {% recursetree all_folders_files %}
+    <li>
+        {{ node.name }}
+        {% if not node.is_leaf_node %}
+        <ul>
+            {{ children }}
+        </ul>
+        {% endif %}
+    </li>
+    {% endrecursetree %}
+</ul>
