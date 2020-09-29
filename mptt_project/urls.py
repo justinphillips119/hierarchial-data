@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from mptt_app.views import folderfile_view, add_folderfile_view
+from mptt_app.views import folderfile_view, add_folderfile_view, user_cabinet_view, registration_view, login_view, logout_view
 
 urlpatterns = [
     path('', folderfile_view, name='homepage'),
     path('addfolderfile/', add_folderfile_view, name='addfolderfile'),
+    path('register/', registration_view, name='register'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
+    path('usercabinet/', user_cabinet_view, name='usercabinet'),
     path('admin/', admin.site.urls),
 ]

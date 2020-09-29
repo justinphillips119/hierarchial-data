@@ -1,0 +1,22 @@
+{% load mptt_tags %}
+<h1>User's Filing Cabinet</h1>
+<br>
+<nav>
+    <a href='/addfolderfile/' style="color:blue;">Add Folder or File</a> |
+    <a href='/' style='color:blue;'>Home</a> |
+    <a href='/logout/' style='color:blue;'>Logout</a>
+</nav>
+<br>
+<br>
+<ul>
+    {% recursetree data %}
+    <li>
+        {{ node.name }}
+        {% if not node.is_leaf_node %}
+        <ul>
+            {{ children }}
+        </ul>
+        {% endif %}
+    </li>
+    {% endrecursetree %}
+</ul>

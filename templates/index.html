@@ -1,7 +1,19 @@
 {% load mptt_tags %}
 <h1>Filing Cabinet</h1>
 <br>
-<button><a href='/addfolderfile/' style="color:blue;">Add Folder or File</a></button>
+{% if request.user.is_authenticated %}
+    <nav>
+        <a href='/addfolderfile/' style="color:blue;">Add Folder or File</a> |
+        <a href='/usercabinet/' style='color:blue;'>My Cabinet</a> |
+        <a href='/logout/' style='color:blue;'>Logout</a>
+    </nav>
+{% else %}
+    <nav>
+        <a href='/login/' style='color:blue;'>Login</a> |
+        <a href='/register/' style='color:blue;'>Register</a>
+    </nav>
+{% endif %}
+
 <br>
 <br>
 <ul>
